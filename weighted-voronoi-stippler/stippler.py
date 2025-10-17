@@ -152,7 +152,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     filename = args.filename
-    density = imageio.imread(filename, as_gray=True, pilmode='L') # Flattens into a grayscale image, 8 bit pixels, black and white
+    density = imageio.v2.imread(filename, mode='F', pilmode='L') # Flattens into a grayscale image, 8 bit pixels, black and white
 
     # We want (approximately) 500 pixels per voronoi region
     zoom = (args.n_point * 500) / (density.shape[0]*density.shape[1]) # Dividing # of pixels*points by image dimensions
